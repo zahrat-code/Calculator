@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ===== Page Backgrounds ===== -->
+    <Color x:Key="PageBgLight">#F3F3F3</Color>
+    <Color x:Key="PageBgDark">#202020</Color>
+
+    <!-- ===== Surface (flyout / header) ===== -->
+    <Color x:Key="SurfaceBgLight">#F9F9F9</Color>
+    <Color x:Key="SurfaceBgDark">#2D2D2D</Color>
+
+    <!-- ===== Text ===== -->
+    <Color x:Key="PrimaryTextLight">#1B1B1B</Color>
+    <Color x:Key="PrimaryTextDark">#FFFFFF</Color>
+    <Color x:Key="SecondaryTextLight">#606060</Color>
+    <Color x:Key="SecondaryTextDark">#A0A0A0</Color>
+
+    <!-- ===== Number Buttons ===== -->
+    <Color x:Key="NumBtnBgLight">#FFFFFF</Color>
+    <Color x:Key="NumBtnBgDark">#3B3B3B</Color>
+
+    <!-- ===== Operator Buttons ===== -->
+    <Color x:Key="OpBtnBgLight">#F0F0F0</Color>
+    <Color x:Key="OpBtnBgDark">#2B2B2B</Color>
+
+    <!-- ===== Scientific Function Buttons ===== -->
+    <Color x:Key="SciFuncBtnBgLight">#E8E8E8</Color>
+    <Color x:Key="SciFuncBtnBgDark">#323232</Color>
+
+    <!-- ===== Equals Button ===== -->
+    <Color x:Key="EqualsBtnBgLight">#0067C0</Color>
+    <Color x:Key="EqualsBtnBgDark">#4CC2FF</Color>
+    <Color x:Key="EqualsBtnTextLight">#FFFFFF</Color>
+    <Color x:Key="EqualsBtnTextDark">#000000</Color>
+
+    <!-- ===== Memory / Disabled Text ===== -->
+    <Color x:Key="MemBtnTextLight">#767676</Color>
+    <Color x:Key="MemBtnTextDark">#9A9A9A</Color>
+
+    <!-- ===== Borders ===== -->
+    <Color x:Key="BorderLight">#E0E0E0</Color>
+    <Color x:Key="BorderDark">#3A3A3A</Color>
+
+    <!-- ===== Settings Card ===== -->
+    <Color x:Key="CardBgLight">#FFFFFF</Color>
+    <Color x:Key="CardBgDark">#2B2B2B</Color>
+
+</ResourceDictionary>

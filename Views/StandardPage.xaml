@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WindowsCalculatorMaui.ViewModels"
+             x:Class="WindowsCalculatorMaui.Views.StandardPage"
+             x:DataType="vm:StandardViewModel"
+             Title="Standard">
+
+    <ContentPage.BindingContext>
+        <vm:StandardViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*"
+          Padding="8,4,8,8"
+          RowSpacing="0">
+
+        <!-- ── Title ── -->
+        <Label Grid.Row="0"
+               Text="Standard"
+               Style="{StaticResource PageTitleStyle}"
+               Padding="4,10,4,4" />
+
+        <!-- ── Display ── -->
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="0"
+                             Margin="4,4,4,6">
+            <Label Text="{Binding ExpressionText}"
+                   Style="{StaticResource DisplayExpressionStyle}"
+                   MinimumHeightRequest="20" />
+            <Label Text="{Binding DisplayText}"
+                   Style="{StaticResource DisplayPrimaryStyle}" />
+        </VerticalStackLayout>
+
+        <!-- ── Memory Row ── -->
+        <Grid Grid.Row="2"
+              ColumnDefinitions="*,*,*,*,*,*"
+              ColumnSpacing="2"
+              Margin="2,0,2,2">
+            <Button Grid.Column="0" Text="MC" Style="{StaticResource MemoryButtonStyle}"
+                    Command="{Binding MemoryClearCommand}"    IsEnabled="{Binding HasMemory}" />
+            <Button Grid.Column="1" Text="MR" Style="{StaticResource MemoryButtonStyle}"
+                    Command="{Binding MemoryRecallCommand}"   IsEnabled="{Binding HasMemory}" />
+            <Button Grid.Column="2" Text="M+" Style="{StaticResource MemoryButtonStyle}"
+                    Command="{Binding MemoryAddCommand}" />
+            <Button Grid.Column="3" Text="M−" Style="{StaticResource MemoryButtonStyle}"
+                    Command="{Binding MemorySubtractCommand}" />
+            <Button Grid.Column="4" Text="MS" Style="{StaticResource MemoryButtonStyle}"
+                    Command="{Binding MemoryStoreCommand}" />
+            <Button Grid.Column="5" Text="M∨" Style="{StaticResource MemoryButtonStyle}"
+                    Command="{Binding MemoryViewCommand}"     IsEnabled="{Binding HasMemory}" />
+        </Grid>
+
+        <!-- ── Button Grid (6 rows × 4 cols) ── -->
+        <Grid Grid.Row="3"
+              RowDefinitions="*,*,*,*,*,*"
+              ColumnDefinitions="*,*,*,*"
+              RowSpacing="4"
+              ColumnSpacing="4">
+
+            <!-- Row 0: %  CE  C  ⌫ -->
+            <Button Grid.Row="0" Grid.Column="0" Text="%" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding UnaryCommand}" CommandParameter="percent" />
+            <Button Grid.Row="0" Grid.Column="1" Text="CE" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding ClearEntryCommand}" />
+            <Button Grid.Row="0" Grid.Column="2" Text="C" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding ClearCommand}" />
+            <Button Grid.Row="0" Grid.Column="3" Text="⌫" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding BackspaceCommand}" />
+
+            <!-- Row 1: 1/x  x²  ²√x  ÷ -->
+            <Button Grid.Row="1" Grid.Column="0" Text="¹/x" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding UnaryCommand}" CommandParameter="reciprocal" />
+            <Button Grid.Row="1" Grid.Column="1" Text="x²" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding UnaryCommand}" CommandParameter="sqr" />
+            <Button Grid.Row="1" Grid.Column="2" Text="²√x" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding UnaryCommand}" CommandParameter="sqrt" />
+            <Button Grid.Row="1" Grid.Column="3" Text="÷" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding OperationCommand}" CommandParameter="/" />
+
+            <!-- Row 2: 7  8  9  × -->
+            <Button Grid.Row="2" Grid.Column="0" Text="7" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="7" />
+            <Button Grid.Row="2" Grid.Column="1" Text="8" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="8" />
+            <Button Grid.Row="2" Grid.Column="2" Text="9" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="9" />
+            <Button Grid.Row="2" Grid.Column="3" Text="×" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding OperationCommand}" CommandParameter="*" />
+
+            <!-- Row 3: 4  5  6  − -->
+            <Button Grid.Row="3" Grid.Column="0" Text="4" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="4" />
+            <Button Grid.Row="3" Grid.Column="1" Text="5" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="5" />
+            <Button Grid.Row="3" Grid.Column="2" Text="6" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="6" />
+            <Button Grid.Row="3" Grid.Column="3" Text="−" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding OperationCommand}" CommandParameter="-" />
+
+            <!-- Row 4: 1  2  3  + -->
+            <Button Grid.Row="4" Grid.Column="0" Text="1" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="1" />
+            <Button Grid.Row="4" Grid.Column="1" Text="2" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="2" />
+            <Button Grid.Row="4" Grid.Column="2" Text="3" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="3" />
+            <Button Grid.Row="4" Grid.Column="3" Text="+" Style="{StaticResource OperatorButtonStyle}"
+                    Command="{Binding OperationCommand}" CommandParameter="+" />
+
+            <!-- Row 5: +/−  0  .  = -->
+            <Button Grid.Row="5" Grid.Column="0" Text="+/-" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding NegateCommand}" />
+            <Button Grid.Row="5" Grid.Column="1" Text="0" Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDigitCommand}" CommandParameter="0" />
+            <Button Grid.Row="5" Grid.Column="2" Text="." Style="{StaticResource NumberButtonStyle}"
+                    Command="{Binding InputDecimalCommand}" />
+            <Button Grid.Row="5" Grid.Column="3" Text="=" Style="{StaticResource EqualsButtonStyle}"
+                    Command="{Binding EqualsCommand}" />
+        </Grid>
+
+    </Grid>
+</ContentPage>
+

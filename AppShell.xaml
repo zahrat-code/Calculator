@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WindowsCalculatorMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:WindowsCalculatorMaui.Views"
+    FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{AppThemeBinding Light={StaticResource SurfaceBgLight}, Dark={StaticResource SurfaceBgDark}}"
+    Shell.BackgroundColor="{AppThemeBinding Light={StaticResource SurfaceBgLight}, Dark={StaticResource SurfaceBgDark}}"
+    Shell.ForegroundColor="{AppThemeBinding Light={StaticResource PrimaryTextLight}, Dark={StaticResource PrimaryTextDark}}"
+    Shell.TitleColor="{AppThemeBinding Light={StaticResource PrimaryTextLight}, Dark={StaticResource PrimaryTextDark}}"
+    Title="Calculator">
+
+    <FlyoutItem Title="Standard">
+        <ShellContent
+            Title="Standard"
+            ContentTemplate="{DataTemplate views:StandardPage}"
+            Route="Standard" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Scientific">
+        <ShellContent
+            Title="Scientific"
+            ContentTemplate="{DataTemplate views:ScientificPage}"
+            Route="Scientific" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Settings">
+        <ShellContent
+            Title="Settings"
+            ContentTemplate="{DataTemplate views:SettingsPage}"
+            Route="Settings" />
+    </FlyoutItem>
+
+</Shell>

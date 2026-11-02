@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WindowsCalculatorMaui.ViewModels"
+             x:Class="WindowsCalculatorMaui.Views.SettingsPage"
+             x:DataType="vm:SettingsViewModel"
+             Title="Settings">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="0">
+
+            <!-- Page Title -->
+            <Label Text="Settings"
+                   Style="{StaticResource PageTitleStyle}"
+                   Margin="0,0,0,16" />
+
+            <!-- Theme Card -->
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <VerticalStackLayout Spacing="0">
+
+                    <Label Text="Appearance"
+                           Style="{StaticResource SettingsSectionStyle}" />
+
+                    <Label Text="Choose a theme for the calculator"
+                           Style="{StaticResource SettingsDescStyle}" />
+
+                    <RadioButton Content="Light"
+                                 GroupName="ThemeGroup"
+                                 IsChecked="{Binding IsLightSelected}" />
+
+                    <RadioButton Content="Dark"
+                                 GroupName="ThemeGroup"
+                                 IsChecked="{Binding IsDarkSelected}" />
+
+                    <RadioButton Content="Use system setting"
+                                 GroupName="ThemeGroup"
+                                 IsChecked="{Binding IsSystemSelected}" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- About Card -->
+            <Border Style="{StaticResource SettingsCardStyle}">
+                <VerticalStackLayout Spacing="6">
+
+                    <Label Text="About"
+                           Style="{StaticResource SettingsSectionStyle}" />
+
+                    <Label Text="Windows Calculator (.NET MAUI)"
+                           Style="{StaticResource SettingsDescStyle}" />
+
+                    <Label Text="Version 1.0.0"
+                           Style="{StaticResource SettingsDescStyle}" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
